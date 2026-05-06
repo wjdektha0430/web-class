@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>인터랙티브 시간표</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #e3f2fd, #fce4ec);
+            text-align: center;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 90%;
+            table-layout: fixed;
+            background-color: white;
+            border: 2px solid black; /* 바깥 테두리 */
+        }
+
+        th, td {
+            border: 1px solid black; /* 내부 모든 선 검은색 */
+            width: 14.28%;
+            height: 80px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            cursor: default;
+        }
+
+        td:hover {
+            background-color: #ffe082;
+        }
+
+        .time {
+            font-size: 11px;
+            color: #333;
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* 교시 색상 */
+        .p1 { background-color: #e1f5fe; }
+        .p2 { background-color: #e8f5e9; }
+        .p3 { background-color: #fff3e0; }
+        .p4 { background-color: #f3e5f5; }
+        .p5 { background-color: #ede7f6; }
+        .p6 { background-color: #fce4ec; }
+        .p7 { background-color: #f1f8e9; }
+
+        /* 점심 강조 */
+        .lunch {
+            background-color: #ffcc80;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>😎 준영 시간표 😎</h1>
+
+<table>
+    <tr>
+        <th>교시</th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+    </tr>
+
+    <tr class="p1">
+        <td>1교시<span class="time">09:00~09:50</span></td>
+        <td onclick="edit(this)">국어</td>
+        <td onclick="edit(this)">수학</td>
+        <td onclick="edit(this)">영어</td>
+        <td onclick="edit(this)">과학</td>
+        <td onclick="edit(this)">사회</td>
+    </tr>
+
+    <tr class="p2">
+        <td>2교시<span class="time">10:00~10:50</span></td>
+        <td onclick="edit(this)">수학</td>
+        <td onclick="edit(this)">영어</td>
+        <td onclick="edit(this)">국어</td>
+        <td onclick="edit(this)">체육</td>
+        <td onclick="edit(this)">과학</td>
+    </tr>
+
+    <tr class="p3">
+        <td>3교시<span class="time">11:00~11:50</span></td>
+        <td onclick="edit(this)">영어</td>
+        <td onclick="edit(this)">국어</td>
+        <td onclick="edit(this)">수학</td>
+        <td onclick="edit(this)">사회</td>
+        <td onclick="edit(this)">미술</td>
+    </tr>
+
+    <tr class="p4">
+        <td>4교시<span class="time">12:00~12:50</span></td>
+        <td onclick="edit(this)">과학</td>
+        <td onclick="edit(this)">사회</td>
+        <td onclick="edit(this)">체육</td>
+        <td onclick="edit(this)">국어</td>
+        <td onclick="edit(this)">수학</td>
+    </tr>
+
+    <tr class="lunch">
+        <td>점심<span class="time">12:50~13:50</span></td>
+        <td colspan="5">🍱 점심시간</td>
+    </tr>
+
+    <tr class="p5">
+        <td>5교시<span class="time">13:50~14:40</span></td>
+        <td onclick="edit(this)">사회</td>
+        <td onclick="edit(this)">과학</td>
+        <td onclick="edit(this)">미술</td>
+        <td onclick="edit(this)">영어</td>
+        <td onclick="edit(this)">체육</td>
+    </tr>
+
+    <tr class="p6">
+        <td>6교시<span class="time">14:50~15:40</span></td>
+        <td onclick="edit(this)">체육</td>
+        <td onclick="edit(this)">미술</td>
+        <td onclick="edit(this)">사회</td>
+        <td onclick="edit(this)">수학</td>
+        <td onclick="edit(this)">국어</td>
+    </tr>
+
+    <tr class="p7">
+        <td>7교시<span class="time">15:50~16:40</span></td>
+        <td onclick="edit(this)">자습</td>
+        <td onclick="edit(this)">동아리</td>
+        <td onclick="edit(this)">자습</td>
+        <td onclick="edit(this)">동아리</td>
+        <td onclick="edit(this)">자습</td>
+    </tr>
+
+</table>
+
+<script>
+function edit(cell) {
+    let current = cell.innerText;
+    let updated = prompt("과목 입력:", current);
+    if (updated !== null && updated.trim() !== "") {
+        cell.innerText = updated;
+    }
+}
+</script>
+
+</body>
+</html>
